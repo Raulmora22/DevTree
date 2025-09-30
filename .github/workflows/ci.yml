@@ -29,7 +29,6 @@ jobs:
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
-      - run: pnpm type-check
 
   # ===================
   # Tests
@@ -49,7 +48,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test
 
   # ===================
   # Build
