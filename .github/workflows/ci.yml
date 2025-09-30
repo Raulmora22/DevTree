@@ -1,4 +1,4 @@
-name: deploy github pages pipeline
+name: Deploy GitHub Pages Pipeline
 
 on:
   push:
@@ -29,6 +29,7 @@ jobs:
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm type-check
 
   # ===================
   # Tests
@@ -37,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ["20.x"]
+        node-version: ["20.x", "22.x"]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -48,6 +49,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
+      - run: pnpm test
 
   # ===================
   # Build
@@ -64,12 +66,15 @@ jobs:
           node-version: "20.x"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm pnpm build:gh
+      - run: pnpm build:github
+        env:
+          NODE_ENV: production
+          VITE_PUBLIC_BASE_URL: /nombre-del-repo/ # Cambiar al nombre de tu repo
 
   # ===================
   # GitHub Pages Deploy
   # ===================
-  pages-build:
+  pages-deploy:
     needs: [quality, test, build]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -82,26 +87,20 @@ jobs:
         with:
           node-version: "20.x"
           cache: "pnpm"
+
+      # Solo habilita el Pages site si es la primera vez
       - uses: actions/configure-pages@v4
         id: pages
-
         with:
           enablement: true
-          path: ./dist
 
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build:github
+      # Subir build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-  deploy:
-    needs: pages-build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
+      # Deploy final
       - uses: actions/deploy-pages@v4
         id: deployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
