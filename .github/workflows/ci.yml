@@ -84,6 +84,11 @@ jobs:
           cache: "pnpm"
       - uses: actions/configure-pages@v4
         id: pages
+
+        with:
+          enablement: true
+          path: ./dist
+
       - run: pnpm install --frozen-lockfile
       - run: pnpm build:github
       - uses: actions/upload-pages-artifact@v3
