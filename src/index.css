@@ -109,6 +109,124 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+.valentine {
+  --background: oklch(87% 0.153 2.432);
+  --foreground: oklch(40% 0.153 2.432);
+
+  --card: oklch(94% 0.028 342.258);
+  --card-foreground: oklch(40% 0.153 2.432);
+
+  --popover: oklch(89% 0.061 343.231);
+  --popover-foreground: oklch(40% 0.153 2.432);
+
+  --primary: oklch(50% 0.241 354.308);
+  --primary-foreground: oklch(100% 0 0);
+
+  --secondary: oklch(50% 0.265 303.9);
+  --secondary-foreground: oklch(97% 0.014 308.299);
+
+  --muted: oklch(85% 0.061 343.231);
+  --muted-foreground: oklch(52% 0.223 3.958);
+
+  --accent: oklch(55% 0.183 55.934);
+  --accent-foreground: oklch(26% 0.079 36.259);
+
+  --destructive: oklch(50% 0.237 25.331);
+  --destructive-foreground: oklch(97% 0.013 17.38);
+
+  --border: oklch(0 0 0 / 20%);
+  --input: oklch(0 0 0 / 15%);
+  --ring: oklch(0.556 0 0 / 50%);
+}
+
+.valentine button {
+  background-color: color-mix(in oklab, var(--input) 90%, var(--background));
+  color: var(--primary-foreground);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--background));
+}
+
+.valentine button:hover {
+  background-color: color-mix(in oklab, var(--input) 70%, var(--background));
+  border-color: color-mix(in oklab, var(--border) 50%, var(--background));
+}
+
+/* =====================
+   AQUA THEME
+===================== */
+.aqua {
+  --background: oklch(30% 0.146 265.522);
+  --card: oklch(28% 0.091 267.935);
+  --popover: oklch(55% 0.091 267.935);
+  --foreground: oklch(90% 0.058 230.902);
+
+  --primary: oklch(85.661% 0.144 198.645);
+  --primary-foreground: oklch(70.124% 0.068 197.603);
+
+  --secondary: oklch(60.682% 0.108 309.782);
+  --secondary-foreground: oklch(96% 0.016 293.756);
+
+  --accent: oklch(93.426% 0.102 94.555);
+  --accent-foreground: oklch(18.685% 0.02 94.555);
+
+  --destructive: oklch(73.95% 0.19 27.33);
+  --destructive-foreground: oklch(14.79% 0.038 27.33);
+
+  --border: oklch(0 0 0 / 50%);
+  --input: oklch(0 0 0 / 50%);
+  --ring: oklch(0.556 0 0 / 50%);
+}
+
+/* Botones semitransparentes con color-mix */
+.aqua button {
+  background-color: color-mix(in oklab, var(--input) 70%, var(--background));
+  color: var(--primary-foreground);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, var(--background));
+}
+
+.aqua button:hover {
+  background-color: color-mix(in oklab, var(--input) 40%, var(--background));
+  border-color: color-mix(in oklab, var(--border) 40%, var(--background));
+}
+
+/* =====================
+   TREE THEME
+===================== */
+.tree {
+  --background: oklch(58.628% 0.185 148.958);
+  --card: oklch(18.522% 0.007 17.911);
+  --popover: oklch(50.628% 0.185 148.958);
+  --foreground: oklch(10.768% 0.001 17.911);
+
+  --primary: oklch(68.628% 0.185 148.958);
+  --primary-foreground: oklch(0% 0 0);
+
+  --secondary: oklch(69.776% 0.135 168.327);
+  --secondary-foreground: oklch(13.955% 0.027 168.327);
+
+  --accent: oklch(70.628% 0.119 185.713);
+  --accent-foreground: oklch(14.125% 0.023 185.713);
+
+  --destructive: oklch(71.76% 0.221 22.18);
+  --destructive-foreground: oklch(0% 0 0);
+
+  --neutral: oklch(30.698% 0.039 171.364);
+  --neutral-foreground: oklch(86.139% 0.007 171.364);
+
+  --border: oklch(0 0 0 / 35%);
+  --input: oklch(0 0 0 / 25%);
+  --ring: oklch(0.556 0 0);
+}
+
+.tree button {
+  background-color: color-mix(in oklab, var(--input) 50%, var(--background));
+  color: var(--primary-foreground);
+  border: 1px solid color-mix(in oklab, var(--border) 90%, var(--background));
+}
+
+.tree button:hover {
+  background-color: color-mix(in oklab, var(--input) 35%, var(--background));
+  border-color: color-mix(in oklab, var(--border) 60%, var(--background));
+}
 
 @layer base {
   * {

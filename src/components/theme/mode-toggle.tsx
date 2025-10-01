@@ -1,5 +1,6 @@
-import { Moon, Sun } from "lucide-react";
-
+import { Moon, Sun, Rose, Computer, Fish, TreePine } from "lucide-react";
+import { DevDashConfig } from "@/config";
+import { itemRounded } from "@/config";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,35 +11,65 @@ import {
 import { useTheme } from "./theme-switcher";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="cursor-pointer" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
+        <Button
+          variant="outline"
+          className={DevDashConfig.RoundedOptions}
+          size="icon"
+        >
+          {theme === "light" && <Sun className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === "dark" && <Moon className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === "valentine" && <Rose className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === "system" && <Computer className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === "aqua" && <Fish className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === "tree" && <TreePine className="h-[1.2rem] w-[1.2rem]" />}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent
+        className={` ${DevDashConfig.RoundedOptions} w-3 `}
+        align="end"
+      >
         <DropdownMenuItem
-          className="cursor-pointer"
+          className={` ${itemRounded} cursor-pointer`}
           onClick={() => setTheme("light")}
         >
           Light
         </DropdownMenuItem>
+
         <DropdownMenuItem
-          className="cursor-pointer"
+          className={` ${itemRounded} cursor-pointer`}
           onClick={() => setTheme("dark")}
         >
           Dark
         </DropdownMenuItem>
         <DropdownMenuItem
-          className="cursor-pointer"
+          className={` ${itemRounded} cursor-pointer`}
           onClick={() => setTheme("system")}
         >
           System
+        </DropdownMenuItem>
+
+        <DropdownMenuItem
+          className={` ${itemRounded} cursor-pointer`}
+          onClick={() => setTheme("aqua")}
+        >
+          Aqua
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={` ${itemRounded} cursor-pointer`}
+          onClick={() => setTheme("tree")}
+        >
+          Tree
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={` ${itemRounded} cursor-pointer`}
+          onClick={() => setTheme("valentine")}
+        >
+          Valentine
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

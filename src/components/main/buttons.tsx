@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import { DevDashConfig } from "@/config";
 
 type ButtonItem = {
   label: string;
@@ -17,10 +18,10 @@ export function Buttons({ buttons }: ButtonsState) {
       {buttons.map((btn, i) => {
         const Icon = btn.Icon;
         return (
-          <div className=" flex p-2 justify-center items-center flex-col gap-2 	">
+          <div className=" flex p-2 rounded justify-center items-center flex-col gap-2 	">
             <a href={btn.href} key={i}>
               <Button
-                className="relative cursor-pointer w-80	gap-2"
+                className={`relative cursor-pointer w-80 ${DevDashConfig.RoundedOptions}	gap-2`}
                 variant="outline"
               >
                 <div className="absolute left-4 top-1/2 -translate-y-1/2">

@@ -12,8 +12,13 @@ import {
   FaFiverr,
   FaPortfolio,
   FaTwitch,
-  FaMedium,
+  FaWeb,
 } from "@/assets/icons";
+
+import { RoundedMap } from "./types/configRules";
+
+import type { DevDashConfigRules } from "./types/configRules";
+
 export const buttons = [
   { label: "Github", href: "https://github.com", Icon: FaGithub },
   { label: "Linkedin", href: "https://linkedin.com", Icon: FaLinkedin },
@@ -28,8 +33,15 @@ export const buttons = [
   { label: "Fiverr", href: "https://fiverr.com", Icon: FaFiverr },
   { label: "Portfolio", href: "https://myportfolio.com", Icon: FaPortfolio },
   { label: "Twitch", href: "https://twitch.tv", Icon: FaTwitch },
-  { label: "Medium", href: "https://medium.com", Icon: FaMedium },
+  { label: "Website", href: "https://medium.com", Icon: FaWeb },
 ];
 
-export const avatarinfo =
-  "https://fortnite.fandom.com/extensions-ucp/mw143/fandom/AgeDeclaration/resources/images/adult.png";
+export const DevDashConfig: DevDashConfigRules = {
+  AvatarUrl:
+    "https://fortnite.fandom.com/extensions-ucp/mw143/fandom/AgeDeclaration/resources/images/adult.png",
+  UserName: "CodeNinja",
+  RoundedOptions: "rounded-xl",
+  AvatarRoundedOptions: "rounded-full",
+};
+
+export const itemRounded = RoundedMap[DevDashConfig.RoundedOptions];
