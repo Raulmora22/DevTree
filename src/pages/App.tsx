@@ -4,6 +4,7 @@ import { ModeToggle } from "@/components/theme/mode-toggle";
 import { buttons } from "@/config";
 import { CustomAvatar } from "@/components/main/avatar";
 import { Copylink } from "@/components/main/copylink";
+import Wattermark from "@/components/main/wattermark";
 export function App() {
   return (
     <div className="pb-16">
@@ -18,6 +19,7 @@ export function App() {
         </div>
         <CustomAvatar />
         <Buttons buttons={buttons} />
+        <Wattermark />
       </ThemeProvider>
     </div>
   );

@@ -19,7 +19,7 @@ export function Buttons({ buttons }: ButtonsState) {
         const Icon = btn.Icon;
         return (
           <div className=" flex p-2 rounded justify-center items-center flex-col gap-2 	">
-            <a href={btn.href} key={i}>
+            <a target="_blank" href={btn.href} key={i}>
               <Button
                 className={`relative cursor-pointer w-80 ${DevDashConfig.RoundedOptions}	gap-2`}
                 variant="outline"
