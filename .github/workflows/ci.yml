@@ -90,12 +90,11 @@ jobs:
           enablement: true
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build:gh
+      - run: pnpm build
 
-      # Subir build para deploy
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./
+          path: ../../dist
 
   deploy:
     needs: pages-build
