@@ -13,9 +13,6 @@ permissions:
   id-token: write
 
 jobs:
-  # ===================
-  # Code Quality
-  # ===================
   quality:
     runs-on: ubuntu-latest
     steps:
@@ -30,9 +27,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
 
-  # ===================
-  # Tests
-  # ===================
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -49,10 +43,8 @@ jobs:
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
 
-  # ===================
-  # Build
-  # ===================
   build:
+    needs: [quality, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -66,35 +58,26 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
-  # ===================
-  # GitHub Pages Deploy
-  # ===================
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-artifact
+          path: ./dist
+
   pages-build:
-    needs: [quality, test, build]
+    needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-          cache: "pnpm"
-
-      # Habilitar Pages la primera vez si es necesario
       - uses: actions/configure-pages@v4
-        id: pages
-        with:
-          enablement: true
 
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: ./dist
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ../../dist
+          path: ./dist
 
   deploy:
     needs: pages-build
