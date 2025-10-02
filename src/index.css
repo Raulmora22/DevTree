@@ -112,25 +112,14 @@
 .valentine {
   --background: oklch(87% 0.153 2.432);
   --foreground: oklch(40% 0.153 2.432);
-
-  --card: oklch(94% 0.028 342.258);
-  --card-foreground: oklch(40% 0.153 2.432);
-
-  --popover: oklch(89% 0.061 343.231);
-  --popover-foreground: oklch(40% 0.153 2.432);
-
+  --popover: oklch(90% 0.153 2.432);
+  --foreground: oklch(50% 0.241 354.308);
   --primary: oklch(50% 0.241 354.308);
   --primary-foreground: oklch(100% 0 0);
-
+  --accent: oklch(90% 0.24 333.788);
+  --accent-foreground: oklch(18.685% 0.02 94.555);
   --secondary: oklch(50% 0.265 303.9);
   --secondary-foreground: oklch(97% 0.014 308.299);
-
-  --muted: oklch(85% 0.061 343.231);
-  --muted-foreground: oklch(52% 0.223 3.958);
-
-  --accent: oklch(55% 0.183 55.934);
-  --accent-foreground: oklch(26% 0.079 36.259);
-
   --destructive: oklch(50% 0.237 25.331);
   --destructive-foreground: oklch(97% 0.013 17.38);
 
@@ -176,7 +165,6 @@
   --ring: oklch(0.556 0 0 / 50%);
 }
 
-/* Botones semitransparentes con color-mix */
 .aqua button {
   background-color: color-mix(in oklab, var(--input) 70%, var(--background));
   color: var(--primary-foreground);

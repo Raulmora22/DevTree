@@ -17,7 +17,7 @@ import {
 
 import { RoundedMap } from "./types/configRules";
 
-import type { DevDashConfigRules } from "./types/configRules";
+import type { DevTreeConfigRules } from "./types/configRules";
 
 export const buttons = [
   { label: "Github", href: "https://github.com", Icon: FaGithub },
@@ -36,12 +36,11 @@ export const buttons = [
   { label: "Website", href: "https://medium.com", Icon: FaWeb },
 ];
 
-export const DevDashConfig: DevDashConfigRules = {
-  AvatarUrl:
-    "https://fortnite.fandom.com/extensions-ucp/mw143/fandom/AgeDeclaration/resources/images/adult.png",
-  UserName: "CodeNinja",
-  RoundedOptions: "rounded-xl",
-  AvatarRoundedOptions: "rounded-full",
+export const DevTreeConfig: DevTreeConfigRules = {
+  AvatarUrl: "https://avatars.githubusercontent.com/u/155681266?v=4",
+  UserName: "Raul Mora",
+  RoundedOptions: "rounded-lg",
+  AvatarRoundedOptions: "rounded-lg",
 };
 
-export const itemRounded = RoundedMap[DevDashConfig.RoundedOptions];
+export const itemRounded = RoundedMap[DevTreeConfig.RoundedOptions];

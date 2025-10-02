@@ -1,5 +1,5 @@
 import { Moon, Sun, Rose, Computer, Fish, TreePine } from "lucide-react";
-import { DevDashConfig } from "@/config";
+import { DevTreeConfig } from "@/config";
 import { itemRounded } from "@/config";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +18,7 @@ export function ModeToggle() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className={DevDashConfig.RoundedOptions}
+          className={`cursor-pointer ${DevTreeConfig.RoundedOptions}`}
           size="icon"
         >
           {theme === "light" && <Sun className="h-[1.2rem] w-[1.2rem]" />}
@@ -30,7 +30,7 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className={` ${DevDashConfig.RoundedOptions} w-3 `}
+        className={` ${DevTreeConfig.RoundedOptions} w-3 `}
         align="end"
       >
         <DropdownMenuItem

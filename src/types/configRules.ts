@@ -1,4 +1,4 @@
-export type DevDashConfigRules = {
+export type DevTreeConfigRules = {
   AvatarUrl: string;
   UserName: string;
   RoundedOptions: "rounded-lg" | "rounded-sm" | "rounded-md" | "rounded-xl";
