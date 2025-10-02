@@ -13,6 +13,9 @@ import {
   FaPortfolio,
   FaTwitch,
   FaWeb,
+  FaReddit,
+  FaWhatsapp,
+  FaAppleMusic,
 } from "@/assets/icons";
 
 import { RoundedMap } from "./types/configRules";
@@ -34,6 +37,9 @@ export const buttons = [
   { label: "Portfolio", href: "https://myportfolio.com", Icon: FaPortfolio },
   { label: "Twitch", href: "https://twitch.tv", Icon: FaTwitch },
   { label: "Website", href: "https://medium.com", Icon: FaWeb },
+  { label: "Reddit", href: "https://Reddit.com", Icon: FaReddit },
+  { label: "Whastapp", href: "https://whatsapp.com/", Icon: FaWhatsapp },
+  { label: "Apple Music", href: "https://whatsapp.com/", Icon: FaAppleMusic },
 ];
 
 export const DevTreeConfig: DevTreeConfigRules = {

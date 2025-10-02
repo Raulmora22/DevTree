@@ -116,6 +116,9 @@ DevTree comes pre-configured with the following icons, ready to use in `src/conf
 - `FaFiverr`
 - `FaPortfolio`
 - `FaTwitch`
+- `FaReddit`
+- `FaWhatsapp`
+- `FaAppleMusic`
 - `FaWeb` (General Website)
 
 **_Note:_** _New icons are always being added\!_
