@@ -66,6 +66,8 @@ export const DevDashConfig: DevDashConfigRules = {
 
 When modifying the **`RoundedOptions`** or **`AvatarRoundedOptions`** properties, you can see all available values by pressing **Ctrl + Space** (or **Cmd + Space** on Mac) inside the quotation marks. This leverages TypeScript intelligence for quick configuration\!
 
+--- 
+
 ### Themes
 
 DevTree supports several built-in themes for quick styling changes.
